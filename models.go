@@ -1,6 +1,9 @@
-// Account represents an account in the form3 org section.
-// See https://api-docs.form3.tech/api.html#organisation-accounts for
-// more information about fields.
+package interview_accountapi
+
+type Envelope[T any] struct {
+	Data *T `json:"data,omitempty"`
+}
+
 type AccountData struct {
 	Attributes     *AccountAttributes `json:"attributes,omitempty"`
 	ID             string             `json:"id,omitempty"`
@@ -19,6 +22,7 @@ type AccountAttributes struct {
 	BaseCurrency            string   `json:"base_currency,omitempty"`
 	Bic                     string   `json:"bic,omitempty"`
 	Country                 *string  `json:"country,omitempty"`
+	CustomerId              string   `json:"customer_id,omitempty"`
 	Iban                    string   `json:"iban,omitempty"`
 	JointAccount            *bool    `json:"joint_account,omitempty"`
 	Name                    []string `json:"name,omitempty"`
